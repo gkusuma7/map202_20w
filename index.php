@@ -2,6 +2,7 @@
 
 <?php
 	
+date_default_timezone_set('America/Toronto');
 $name ='Kusuma Garlapati';
 $date = date('Y-m-d H:i:s');
 $id = '19051848';
@@ -45,10 +46,15 @@ $string1= 'Welcome to PHP LAB1';
 	
 		<h4>
 			My student id is <?php echo $id; ?>
-			<br>
-			<br>
-			Today date is <?php echo $date; ?>
+		
 	</h4>
+			
+			<br>
+			
+			<p>
+					
+			<strong> Today date is <?php echo $date; ?> </strong>
+			</p>
 
 		
 		</section>
