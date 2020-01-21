@@ -2,6 +2,9 @@
 
 <?php
 	
+
+require_once 'database.php';
+
 $films = array(
             "comedy" => array (
                             0 => "Pink Panther",
@@ -40,6 +43,12 @@ $favorites = array(
         <title>PHP LAB2 </title>
     </head>
     <body>
+		<h1>
+			Menu
+		</h1>
+		<h2>
+			<a href="form.php">Form!</a>
+		</h2>
 		<h1>
 			 Movies Array Table
 		</h1>
