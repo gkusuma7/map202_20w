@@ -1,5 +1,13 @@
 <?php
 require_once 'database.php';
+
+
+$password='KG123@';
+
+$hash = password_hash($password, PASSWORD_DEFAULT);
+
+
+echo $hash;
 	
 ?>
 
@@ -34,6 +42,9 @@ require_once 'database.php';
 		
 		?>
 </select>
+		
+		
+		
 		
 		
   <input type="submit" value="Submit">
