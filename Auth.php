@@ -1,8 +1,9 @@
 <?php
-session_start();
+
 require_once ('database.php');
 	class Auth {
 
+				
 	public function __construct($param = false) {  }
 		
 	public function authenticate ($username,$password) {
@@ -20,28 +21,40 @@ require_once ('database.php');
 		
 		if (password_verify($password, $details['password'])) {
               //require_once 'alogin.php';
+			session_start();
 			header('Location:alogin.php');
 			
 		} 
 		else
 		{
 			echo "Please give the correct username and password";
-			if(isset($session['attempts']))
+			session_start();
+			
+			
+				
+				session_start();
+		if( isset( $_SESSION['counter'] ) ) 
 			{
-				echo $session['attempts'];
-				$session['attempts']++;
-			}
-			else
-			{
-				$session['attempts']==1;
-			}
+			
+			echo '<html> <br>  </html>';
+				
+      				$_SESSION['counter'] += 1;
+			
+   					}
+			else {
+				
+    			  $_SESSION['counter'] = 1;
+ 				  }
+			
+						
 			
 		}
-			
-		if($session['attempts'] > 3)
+		
+			if($_SESSION['counter'] > 3)
 		{
 			echo "You exceeded maximum attempts, Please try after some time";
 		}
+		
 		
 			
 
