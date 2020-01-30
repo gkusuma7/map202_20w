@@ -24,8 +24,25 @@ require_once ('database.php');
 			
 		} 
 		else
+		{
 			echo "Please give the correct username and password";
+			if(isset($session['attempts']))
+			{
+				echo $session['attempts'];
+				$session['attempts']++;
+			}
+			else
+			{
+				$session['attempts']==1;
+			}
 			
+		}
+			
+		if($session['attempts'] > 3)
+		{
+			echo "You exceeded maximum attempts, Please try after some time";
+		}
+		
 			
 
 				}
