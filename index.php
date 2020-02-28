@@ -1,30 +1,6 @@
-<!DOCTYPE html>
+<?php 
 
-<?php
-require_once 'header.php';
+require_once 'app/init.php';
 
-//$hash = password_hash('456', PASSWORD_DEFAULT);
-//echo $hash;
-//die;
+$app = new App;
 
-
-?>
-
-
- 
-    <body>
-		
-		
-		<h1>
-			<a href="login.php">Login Form </a>
-		</h1>
-			
-	
-		
-    </body>
-		
-<?php
-
-require_once 'footer.php';
-	
-?>

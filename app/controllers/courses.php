@@ -3,39 +3,33 @@
 class Courses extends Controller{
 	
 public function index($department = null, $program = null) {	
+	$course = $this->model('Course');	
+	if(isset($program))
+	{
+		$program = rawurldecode($program);
+		$courses = $course->get_AllCourses($program);
+		$this->view('courses/displayCourses',['courses' => $courses,'programName' => $program]);
+		die;
+	}
 	
 	if(isset($department))
 	{
-		
-		
+		$department = rawurldecode($department);
+		$programs = $course->get_Programs($department);
+		$this->view('courses/displayPrograms',['programs' => $programs, 'departmentName' => $department]);
+		die;
 	}
-	
-		$course = $this->model('Course');
 	
 	$course_array = $course->get_Courses();
 	
 	$dept_array= $course->get_Departments();
 	
-	foreach($dept_array as $dept)
-	{
-		echo $dept[department]. '<br>';
-	}
 	
+$this->view('courses/index', ['departments'=> $dept_array]);
 	
-	foreach($course_array as $course)
-	{
-		echo $course[course_id]. '<br>';
-	}
+	   
+}
 	
-	
-	
-	
-	
-    }
-	
-	
-	
-
 	
 	
 }
