@@ -60,7 +60,25 @@ class Course{
 	}
 	
 	
-	
+	public function saveData($courseid,$coursename,$program,$department){
+		
+		
+		$db = db_connect();
+			
+		$statement =$db->prepare("INSERT INTO courses(courseid, coursename, program, department) VALUES (:searchterm1,:searchterm2,:searchterm3,:searchterm4)");
+				
+			$statement->bindParam(':searchterm1', $courseid);
+		
+		$statement->bindParam(':searchterm2', $coursename);
+			$statement->bindParam(':searchterm3', $program);
+		
+		$statement->bindParam(':searchterm4', $department);
+		
+			$statement->execute();			
+		
+		
+		
+		}
 }
 	
 	

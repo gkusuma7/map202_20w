@@ -1,3 +1,4 @@
+
 <?php
 	
 class Courses extends Controller{
@@ -14,6 +15,10 @@ public function index($department = null, $program = null) {
 	
 	if(isset($department))
 	{
+				if($department=='insert'){
+						$this->view('courses/insert');
+						die;
+					}
 		$department = rawurldecode($department);
 		$programs = $course->get_Programs($department);
 		$this->view('courses/displayPrograms',['programs' => $programs, 'departmentName' => $department]);
@@ -39,3 +44,4 @@ $this->view('courses/index', ['departments'=> $dept_array]);
 
 
 ?>
+
