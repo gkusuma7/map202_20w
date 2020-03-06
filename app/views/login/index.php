@@ -7,6 +7,10 @@
         <div class="row">
             <div class="col-lg-12">
                 <h1>You are not logged in!</h1>
+				
+				<h2>
+					 <a href= "/signup"> SignUp for the Page</a>
+				</h2>
 
                 <!--<p class="lead"><a href="/login/register"> Sign up here </a></p>-->
             </div>

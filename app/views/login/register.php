@@ -1,4 +1,4 @@
-<?php require_once '../app/views/templates/headerPublic.php' ?>
+
 <main role="main" class="container">
     <div class="page-header" id="banner">
         <div class="row">
@@ -11,18 +11,18 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <form class="form-horizontal" action="/login/register" method="post">
+            <form class="form-horizontal" action="signup/verify" method="post">
 			    <fieldset>
 					<div class="form-group">
 					  <label for="username" class="col-lg-2 control-label">New Username</label>
 					  <div class="col-lg-10">
-						<input type="text" class="form-control" name="username" placeholder="Username">
+						<input type="text" pattern="^[a-zA-Z0-9]+$" class="form-control" name="username" placeholder="Username">
 					  </div>
 					</div>
 					<div class="form-group">
 					  <label for="password" class="col-lg-2 control-label">New Password</label>
 					  <div class="col-lg-10">
-						<input type="password" class="form-control" name="password" placeholder="Password">
+						<input type="password" class="form-control" name="password" placeholder="Password"   minlength="8" required>
 					  </div>
 					</div>
 					<div class="form-group">
@@ -30,10 +30,25 @@
 						<button type="submit" class="btn btn-primary">Submit</button>
 					  </div>
 					</div>
+				
+					
+					
+					
+					<?php
+		if ($_SESSION['usernameused']==1) { ?>
+	<div class="row">
+    	<div class="col-sm-auto">		
+			<div class="alert alert-dismissible alert-danger">
+USER NAME TAKEN
+			</div>
+		</div>
+	</div>
+	<?php }	
+	?>
 			    </fieldset>
 			</form>
 			<a href="/login/register"> Sign up here </a>
         </div>
     </div>
 
-    <?php require_once '../app/views/templates/footer.php' ?>
+ 

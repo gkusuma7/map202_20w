@@ -49,5 +49,37 @@ class User {
         $statement->execute();
 
 	}
+	
+	
+	public function userinsert($username,$password){
+		
+		$db = db_connect();
+		$statement =$db->prepare("INSERT INTO users(username, password) VALUES (:searchterm1,:searchterm2)");
+		$statement->bindParam(':searchterm1', $username);
+
+		$statement->bindParam(':searchterm2', $password);
+		
+		$statement->execute();	
+		
+		
+	}
+	
+	
+	public function usernamecheck($username)
+	{
+		$db = db_connect();
+        $statement = $db->prepare("select username from users where  username=:username");
+        $statement->bindValue(':username', $username);
+        $statement->execute();
+		$results= $statement->fetchAll(PDO::FETCH_ASSOC);
+		return $results;
+	
+		
+	}
+	
+	
+	
+	
+	
 
 }

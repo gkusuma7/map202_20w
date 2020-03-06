@@ -45,3 +45,4 @@ $this->view('courses/index', ['departments'=> $dept_array]);
 
 ?>
 
+
